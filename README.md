@@ -2,6 +2,9 @@
 
 In this challenge we're going to score a bowling game, given a set of frames. Easier said than done.
 
+## MVP
+- Score a game with spares and strikes (using loops and conditionals)
+  
 ## Rules of bowling
 
 Depending on where you're from (or your interests) you might either be very familiar or not at all certain about the rules of bowling. 
