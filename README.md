@@ -35,7 +35,7 @@ Depending on where you're from (or your interests) you might either be very fami
 
 We can write our code in `game.js`
 
-- [ ] Using what we know about JavaScript, write a program which scores a full game, given all frames
+- [x] Using what we know about JavaScript, write a program which scores a full game, given all frames
   <details style="padding-left: 2em">
     <summary>More about scoring a game</summary>
 
@@ -52,7 +52,7 @@ We can write our code in `game.js`
 
 ### 2. Complex endings
 
-- [ ] Try scoring a game with a more complex ending
+- [x] Try scoring a game with a more complex ending
   <details style="padding-left: 2em">
     <summary>A game with a complex ending</summary>
 
@@ -68,7 +68,7 @@ We can write our code in `game.js`
 
 ### 3. A perfect game
 
-- [ ] Try scoring a perfect game
+- [x] Try scoring a perfect game
   <details style="padding-left: 2em">
     <summary>A perfect game</summary>
 
