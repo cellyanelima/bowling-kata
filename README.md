@@ -1,97 +1,92 @@
-# Bowling kata
+# 🎳 Bowling Kata – Bowling Score Calculator
 
-In this challenge we're going to score a bowling game, given a set of frames. Easier said than done.
+This project was developed as part of my training at **DevAcademy**, with the goal of applying fundamental programming concepts—such as loops, conditionals, and array manipulation—in a practical, rule-driven challenge.
 
-## MVP
-- Score a game with spares and strikes (using loops and conditionals)
-  
-## Rules of bowling
+## 💡 Challenge Description
 
-Depending on where you're from (or your interests) you might either be very familiar or not at all certain about the rules of bowling. 
-
-<details>
-  <summary>The rules of ten-pin bowling</summary>
-  
-  Here we're **not** speaking of cricket, or lawn bowls! Ten pins in a lane, rental shoes that smell of disinfectant, coloured balls with holes that never seem to quite fit your fingers... **that's** the kind of bowling we want to score.
-
-  * Each player usually gets two balls per **frame**. There are ten frames.
-  * If a player knocks down all the pins with **one** ball, that's a **strike**.
-    * A strike scores ten points **plus the score for the next two balls**.
-  * If a player knocks down all the pins with **two** balls, that's a **spare**.
-    * A spare scores ten points **plus the score for the next ball**.
-  * If a player doesn't knock down all the pins in a frame, they just get one point for each pin they do manage to knock down.
-  * On the tenth frame, if the first two balls contain a strike or make a spare, the player gets a third ball.
-  * The maximum possible score (a "perfect game" of all strikes) is 300.
-
-  [This WikiHow page](http://www.wikihow.com/Score-Bowling) has some more detail on how to keep score.
-</details>
-<br />
-
-----
-
-## Requirements
-
-### 1. Score a game
-
-We can write our code in `game.js`
-
-- [x] Using what we know about JavaScript, write a program which scores a full game, given all frames
-  <details style="padding-left: 2em">
-    <summary>More about scoring a game</summary>
-
-    Assume we already know how many pins were knocked down in each frame. You can come up with your own way to represent that data, but we suggest you use something like this example:
-
-    ```js
-      const frames = [
-        [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]
-      ]
-    ```
-
-    The score for this game is 119.
-  </details>
-
-### 2. Complex endings
-
-- [x] Try scoring a game with a more complex ending
-  <details style="padding-left: 2em">
-    <summary>A game with a complex ending</summary>
-
-    The frames of a game with a more complex ending might look like:
-    ```js
-      const frames = [
-        [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
-      ]
-    ```
-    
-    The score for this game is 141.
-  </details>
-
-### 3. A perfect game
-
-- [x] Try scoring a perfect game
-  <details style="padding-left: 2em">
-    <summary>A perfect game</summary>
-
-    The frames of a perfect game would look like:
-    ```js
-    const frames = [
-      [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 10, 10]
-    ]
-    ```
-
-    The score for this game is 300.
-  </details>
-
-If you would benefit from an interactive illustration, check out this [Bowling Score Calculator](http://www.bowlinggenius.com/).
+The goal of this kata is to implement a function that accurately calculates the **total score of a bowling game**, following the official rules of *ten-pin bowling*. Despite seeming simple at first, the challenge requires attention to details like **strikes**, **spares**, and **specific rules for the tenth frame**, making it a great exercise in logic and code structure.
 
 ---
-## Checking your work
 
-If we've written our code in `game.js`, we can execute it by running:
+## 🎯 Objectives (MVP)
+
+- [x] Implement scoring logic for spares and strikes
+- [x] Handle the special case of the last frame (potential 3 rolls)
+- [x] Support normal scoring (no strike or spare)
+- [x] Validate different scenarios: regular game, complex endings, and perfect game
+
+---
+
+## 📋 Business Rules
+
+The implemented rules follow the standard ten-pin bowling format:
+
+- Each frame allows up to two rolls, except the last which may have three.
+- **Strike**: all pins knocked down in the first roll. Score: 10 + next two rolls.
+- **Spare**: all pins knocked down in two rolls. Score: 10 + next roll.
+- Otherwise, the score is the simple sum of pins knocked down in the frame.
+- In the 10th frame:
+  - If a **strike** or **spare** occurs, the player gets bonus roll(s).
+  - The maximum possible score is **300 points** (a perfect game with 12 consecutive strikes).
+
+---
+
+## 🧠 Data Structure
+
+Frames are represented as an array of arrays. Each subarray represents a frame with up to two rolls (or three in the final frame if applicable):
+
+```js
+const frames = [
+  [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]
+];
 ```
+
+---
+
+## 📈 Implemented Test Cases
+
+### ✅ Regular Game
+```js
+const frames = [
+  [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]
+];
+// Expected result: 119
+```
+
+### ✅ Complex Ending
+```js
+const frames = [
+  [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
+];
+// Expected result: 141
+```
+
+### ✅ Perfect Game
+```js
+const frames = [
+  [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 0], [10, 10, 10]
+];
+// Expected result: 300
+```
+
+---
+
+## 🛠 Running the Code
+
+This project was built in **JavaScript (Node.js)**. To execute the code:
+
+```bash
 node game.js
 ```
-Remember, we will only see output from running our `game.js` file if our code has `console.log` calls.
 
 ---
-[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=bowling-kata)
+
+## 🚀 Technical Considerations
+
+- The code was written with a focus on clarity, readability, and modularity.
+- The scoring logic was thoroughly tested with different frame combinations to ensure compliance with the game rules.
+- This challenge was a valuable exercise in transforming complex business rules into functional, reliable code.
+
+---
+
+If you'd like to review or comment on the code, I'm open to technical feedback. Thank you for taking the time to evaluate!
